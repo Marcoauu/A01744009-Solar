@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photon Labs · Cotizador fotovoltaico · A01744009</title>
+<meta name="description" content="Solución para dimensionar y cotizar un sistema fotovoltaico para un aula escolar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B3D91'/%3E%3Ccircle cx='50' cy='42' r='16' fill='%23FFC93C'/%3E%3Crect x='20' y='66' width='60' height='18' rx='3' fill='%236FA8FF'/%3E%3C/svg%3E">
+<style>
+:root{--blue:#0B3D91;--night:#071F4A;--sky:#2F80ED;--cell:#6FA8FF;--pale:#DCE9FB;--sun:#FFC93C;--orange:#F5A400;--grey:#5B6B86;
+--bg:#F4F7FC;--card:#fff;--tx:#071F4A;--mut:#5B6B86;--ln:#D5DEEE}
+@media (prefers-color-scheme:dark){:root{--bg:#0A1226;--card:#111B36;--tx:#EAF1FF;--mut:#9FB0D0;--ln:#24325A}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:var(--night);color:#fff}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1px;text-decoration:none}
+nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;font-size:14px}
+nav ul a{text-decoration:none;color:#DCE9FB}nav ul a:hover{color:var(--sun)}
+@media(max-width:640px){nav ul{display:none}}
+.hero{background:linear-gradient(160deg,var(--night),var(--blue));color:#fff;padding:64px 0 72px}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}}
+.tag{display:inline-block;background:rgba(255,201,60,.15);color:var(--sun);border:1px solid var(--sun);border-radius:99px;padding:2px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.15;margin:14px 0}
+.hero p{color:#DCE9FB;font-size:18px;max-width:520px}
+.btn{display:inline-block;margin:10px 10px 0 0;padding:12px 22px;border-radius:12px;font-weight:700;text-decoration:none}
+.b1{background:var(--sun);color:var(--night)}.b2{border:2px solid var(--cell);color:#fff}
+.hero svg{width:100%;max-width:300px;justify-self:center}
+section{padding:56px 0}
+h2{font-size:28px;margin:0 0 8px}
+.lead{color:var(--mut);max-width:680px;margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:20px}
+.card .n{display:inline-flex;width:34px;height:34px;border-radius:10px;background:var(--blue);color:#fff;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:17px}.card p{margin:0;color:var(--mut);font-size:15px}
+.alt{background:var(--pale)}
+@media(prefers-color-scheme:dark){.alt{background:#0E1830}}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:700;font-size:14px}
+.flow span{background:var(--blue);color:#fff;border-radius:99px;padding:6px 14px}
+.flow i{color:var(--sky);font-style:normal}
+.tl{border-left:4px solid var(--cell);margin:0;padding:0 0 0 22px;list-style:none}
+.tl li{position:relative;margin-bottom:22px}
+.tl li::before{content:"";position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--blue);border:3px solid var(--bg)}
+.tl li:last-child::before{background:var(--sun)}
+.tl b{display:block}.tl small{color:var(--sky);font-weight:700}
+.note{background:var(--card);border-left:6px solid var(--sun);border-radius:12px;padding:18px 22px}
+.sim{display:grid;grid-template-columns:1fr 1.3fr;gap:16px}
+@media(max-width:820px){.sim{grid-template-columns:1fr}}
+.ctl label{display:block;font-size:14px;font-weight:600;margin:14px 0 4px}
+.ctl label b{float:right;color:var(--sky)}
+.ctl input[type=range]{width:100%;accent-color:var(--sky)}
+.pre{display:flex;flex-wrap:wrap;gap:6px}
+.pre button{flex:1;min-width:90px;border:2px solid var(--blue);background:transparent;color:var(--tx);border-radius:10px;padding:8px;font-weight:700;cursor:pointer;font:inherit;font-size:14px;font-weight:700}
+.pre button.on{background:var(--blue);color:#fff}
+details{margin-top:14px;font-size:14px}details input[type=number]{width:80px;padding:4px;border:1px solid var(--ln);border-radius:6px;background:var(--card);color:var(--tx)}
+details div{display:flex;justify-content:space-between;margin:6px 0}
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+.kpi div{background:var(--bg);border-radius:12px;padding:10px 12px}
+.kpi small{color:var(--mut);font-size:12px;display:block}.kpi b{font-size:22px}
+svg.ch text{fill:var(--mut);font-size:11px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left}th{color:var(--mut);font-weight:600}
+td.num{font-variant-numeric:tabular-nums}
+#tip{position:fixed;pointer-events:none;background:var(--night);color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;display:none;z-index:20}
+.fx{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-bottom:16px}
+@media(max-width:820px){.fx{grid-template-columns:1fr}}
+#cv{width:100%;height:auto;border-radius:12px;background:#071F4A;display:block}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding-left:40px;margin-bottom:14px;font-size:15px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:8px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.ph{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;font-size:13px;color:var(--mut)}
+.ph span{display:inline-flex;align-items:center;gap:5px}
+.ph i{width:10px;height:10px;border-radius:50%;display:inline-block}
+select{width:100%;padding:8px;border-radius:10px;border:1px solid var(--ln);background:var(--card);color:var(--tx);font:inherit}
+.stats{background:linear-gradient(180deg,#0B3D91,#071F4A);color:#fff;padding:0 0 40px;margin-top:-1px}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:640px){.stats .wrap{grid-template-columns:1fr}}
+.stats div div{background:rgba(255,255,255,.06);border:1px solid rgba(111,168,255,.3);border-radius:16px;padding:18px 20px}
+.stats b{display:block;font-size:34px;color:var(--sun);line-height:1.1;font-variant-numeric:tabular-nums}
+.stats small{color:#DCE9FB;font-size:14px}
+.menu{display:none;background:none;border:2px solid var(--cell);color:#fff;border-radius:10px;padding:6px 12px;font:inherit;font-weight:700;cursor:pointer}
+@media(max-width:640px){.menu{display:block}nav ul.open{display:flex;flex-direction:column;position:absolute;top:60px;left:0;right:0;background:var(--night);padding:12px 20px 18px;gap:12px}}
+.cta{background:linear-gradient(160deg,var(--blue),var(--sky));color:#fff;border-radius:20px;padding:36px;text-align:center}
+.cta h2{color:#fff}.cta p{color:#DCE9FB;max-width:560px;margin:0 auto 10px}
+footer small{display:block;color:#9FB0D0;margin-top:4px}
+.stp{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.stp button{border:1px solid var(--ln);background:var(--card);color:var(--tx);border-radius:99px;padding:6px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.stp button.on{background:var(--sun);border-color:var(--sun);color:var(--night)}
+.cap{background:var(--pale);border-radius:12px;padding:12px 14px;margin-top:10px;font-size:14px;min-height:64px}
+@media(prefers-color-scheme:dark){.cap{background:#0E1830}}
+.now{border-left:6px solid var(--sky);background:var(--bg);border-radius:12px;padding:12px 14px;margin-top:12px;font-size:14px}
+.qz{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.qz .card p.q{font-weight:700;margin:0 0 10px;color:var(--tx)}
+.qz button{display:block;width:100%;text-align:left;margin:6px 0;border:1px solid var(--ln);background:var(--bg);color:var(--tx);border-radius:10px;padding:8px 12px;font:inherit;font-size:14px;cursor:pointer}
+.qz button.ok{border-color:#2F80ED;background:rgba(47,128,237,.12)}.qz button.no{opacity:.55}
+.qz .why{display:none;margin-top:10px;font-size:14px;color:var(--mut);border-top:1px solid var(--ln);padding-top:10px}
+.qz .why b{color:var(--tx)}
+footer{background:var(--night);color:#DCE9FB;padding:32px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ic" viewBox="0 0 100 100">
+<rect width="100" height="100" rx="22" fill="#0B3D91"/>
+<circle cx="50" cy="36" r="13" fill="#FFC93C"/>
+<g stroke="#FFC93C" stroke-width="4" stroke-linecap="round"><path d="M28 36h-6M78 36h-6M34 20l4 4M66 20l-4 4M50 12v6"/></g>
+<g fill="#6FA8FF"><rect x="20" y="60" width="18" height="12" rx="2"/><rect x="41" y="60" width="18" height="12" rx="2"/><rect x="62" y="60" width="18" height="12" rx="2"/><rect x="20" y="75" width="18" height="12" rx="2"/><rect x="41" y="75" width="18" height="12" rx="2"/><rect x="62" y="75" width="18" height="12" rx="2"/></g>
+</symbol></defs></svg>
+
+<nav><div class="wrap">
+<a class="brand" href="#inicio"><svg width="36" height="36"><use href="#ic"/></svg>A01744009</a>
+<button class="menu" aria-expanded="false" aria-controls="mnu" onclick="var u=document.getElementById('mnu');u.classList.toggle('open');this.setAttribute('aria-expanded',u.classList.contains('open'))">Menú</button>
+<ul id="mnu" onclick="this.classList.remove('open')"><li><a href="#reto">El reto</a></li><li><a href="#solucion">Solución</a></li><li><a href="#simulador">Simulador de celdas solares</a></li><li><a href="#mediciones">Mediciones</a></li><li><a href="#ruta">Ruta</a></li><li><a href="#entregables">Entregables</a></li></ul>
+</div></nav>
+
+<header class="hero" id="inicio"><div class="wrap">
+<div>
+<span class="tag">Photon Labs · Propuesta técnico-comercial</span>
+<h1>Descubre cómo la luz del sol se convierte en electricidad</h1>
+<p>Un simulador de celdas solares para ver, paso a paso, por qué funciona un panel y cuánto produce. Es la base para cotizar el sistema solar de un aula.</p>
+<a class="btn b1" href="#simulador">Simulador de celdas solares</a><a class="btn b2" href="#solucion">Ver la solución</a>
+</div>
+<svg viewBox="0 0 100 100" role="img" aria-label="Logo: sol sobre celdas solares"><use href="#ic"/></svg>
+</div></header>
+<div class="stats"><div class="wrap">
+<div><b>19.61 V</b><small>Panel perpendicular al sol (promedio medido)</small></div>
+<div><b>9.08 V</b><small>Panel boca abajo (promedio medido)</small></div>
+<div><b>−54%</b><small>Caída del voltaje al voltear el panel</small></div>
+</div></div>
+
+<section id="reto"><div class="wrap">
+<h2>El reto</h2>
+<p class="lead">¿Cómo convertir un análisis de circuitos eléctricos en una herramienta confiable que Photon Labs pueda usar para cotizar proyectos y comunicar su valor a los clientes?</p>
+<div class="grid">
+<div class="card"><h3>Caso inicial</h3><p>Un aula escolar: sus equipos, su consumo y su necesidad de energía.</p></div>
+<div class="card"><h3>Herramienta</h3><p>App web autocontenida, sin base de datos, con cálculos en el navegador.</p></div>
+<div class="card"><h3>Resultado</h3><p>Un dimensionamiento y una cotización preliminar, entendible para un cliente no especialista.</p></div>
+</div></div></section>
+
+<section id="solucion" class="alt"><div class="wrap">
+<h2>La solución, módulo por módulo</h2>
+<p class="lead">Cada módulo responde una pregunta del cliente y alimenta al siguiente.</p>
+<div class="grid">
+<div class="card"><span class="n">1</span><h3>Consumo del aula</h3><p>Registra equipos, cantidad, potencia y horas de uso para estimar demanda (kW) y energía (kWh).</p></div>
+<div class="card"><span class="n">2</span><h3>Paneles solares</h3><p>Calcula cuántos paneles se necesitan y su conexión en serie o paralelo.</p></div>
+<div class="card"><span class="n">3</span><h3>Inversor</h3><p>Elige un equipo real y verifica potencia, voltajes y corrientes compatibles.</p></div>
+<div class="card"><span class="n">4</span><h3>Baterías</h3><p>Estima capacidad, configuración y autonomía, indicando supuestos y límites.</p></div>
+<div class="card"><span class="n">5</span><h3>Catálogo comercial</h3><p>Productos reales con marca, modelo, especificaciones, precio, proveedor, enlace y fecha de consulta.</p></div>
+<div class="card"><span class="n">6</span><h3>Evaluación económica</h3><p>Inversión, ahorro estimado y retorno. El usuario escribe el costo de la luz en MXN/kWh.</p></div>
+<div class="card"><span class="n">7</span><h3>Reporte PDF</h3><p>Propuesta profesional con portada, resumen, gráficas, componentes, presupuesto y anexos técnicos.</p></div>
+</div>
+<h3 style="margin:34px 0 12px">Cómo fluye el cálculo</h3>
+<div class="flow"><span>Consumo</span><i>→</i><span>Paneles</span><i>→</i><span>Inversor</span><i>→</i><span>Baterías</span><i>→</i><span>Costos</span><i>→</i><span>PDF</span></div>
+</div></section>
+
+<section id="simulador" class="alt"><div class="wrap">
+<h2>Simulador de celdas solares</h2>
+<p class="lead">Mira por qué la luz se convierte en electricidad, y luego cómo cambian el voltaje, la corriente y la potencia al mover el panel.</p>
+<h3 style="margin:0 0 10px">¿Por qué funciona? El efecto fotovoltaico</h3>
+<div class="fx">
+<div class="card" style="padding:12px">
+<div class="stp" id="stp"><button data-s="0" class="on">Ver todo</button><button data-s="1">1 · Llega el fotón</button><button data-s="2">2 · Se libera el electrón</button><button data-s="3">3 · La unión los separa</button><button data-s="4">4 · Circula la corriente</button></div>
+<canvas id="cv" width="560" height="320" aria-label="Animación: fotones entran a la celda, liberan electrones y estos circulan por un foco"></canvas>
+<div class="cap" id="cap"></div>
+<div class="ph"><span><i style="background:#FFC93C"></i>Fotón con energía suficiente</span><span><i style="background:#5B6B86"></i>Fotón sin energía suficiente</span><span><i style="background:#6FA8FF"></i>Electrón (−)</span><span><i style="background:#F5A400"></i>Hueco (+)</span></div>
+<div style="display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;margin-top:12px">
+<svg id="lad" viewBox="0 0 130 170" style="width:100%" role="img" aria-label="Energía del fotón comparada con la energía mínima del silicio"></svg>
+<p id="ladTx" style="margin:0;font-size:14px"></p></div>
+<div class="kpi" style="grid-template-columns:repeat(3,1fr)">
+<div><small>Energía de cada fotón</small><b id="kE"></b></div>
+<div><small>Energía mínima del silicio</small><b>1.12 eV</b></div>
+<div><small>¿Libera electrones?</small><b id="kOk"></b></div>
+</div>
+</div>
+<div class="card">
+<ol class="steps">
+<li><b>La luz llega en paquetes.</b> Cada paquete se llama <em>fotón</em> y lleva energía: E = 1240 / λ (eV, con λ en nm).</li>
+<li><b>El fotón suelta un electrón.</b> Si su energía es mayor a 1.12 eV, arranca un electrón del silicio y deja un hueco (+). Si no alcanza, pasa sin hacer nada.</li>
+<li><b>La unión P–N los separa.</b> Entre la capa N (arriba) y la P (abajo) hay un campo eléctrico que empuja los electrones hacia arriba y los huecos hacia abajo. Eso crea el <em>voltaje</em>.</li>
+<li><b>Los electrones circulan.</b> Si conectas un foco, los electrones salen por el contacto de arriba, pasan por el foco y regresan por abajo. Eso es la <em>corriente</em>.</li>
+</ol>
+<p style="font-size:13px;color:var(--mut);margin:0">Más luz = más fotones = más electrones = más corriente. Se parece al efecto fotoeléctrico de Einstein, pero aquí el electrón no sale del material: se queda dentro y circula por el cable.</p>
+</div>
+</div>
+<div class="sim">
+<div class="card ctl">
+<b>Posición del panel</b>
+<div class="pre" style="margin-top:8px">
+<button data-p="arriba">Boca arriba</button><button data-p="perp" class="on">Perpendicular al sol</button><button data-p="abajo">Boca abajo</button>
+</div>
+<label>Color de la luz</label><select id="lam">
+<option value="0">Luz del sol (todos los colores)</option>
+<option value="450">Azul · 450 nm</option><option value="550">Verde · 550 nm</option><option value="650">Rojo · 650 nm</option>
+<option value="950">Infrarrojo cercano · 950 nm</option><option value="1300">Infrarrojo lejano · 1300 nm</option></select>
+<label>Ángulo entre el panel y el sol <b id="vAng"></b></label><input id="ang" type="range" min="0" max="180" value="0">
+<label>Altura del sol sobre el horizonte <b id="vEl"></b></label><input id="el" type="range" min="10" max="90" value="50">
+<label>Luz del sol (irradiancia) <b id="vG"></b></label><input id="G" type="range" min="100" max="1100" step="10" value="1000">
+<label>Temperatura de las celdas <b id="vT"></b></label><input id="T" type="range" min="0" max="80" value="25">
+<label>Celdas en serie (suman voltaje) <b id="vS"></b></label><input id="S" type="range" min="1" max="72" value="36">
+<label>Filas en paralelo (suman corriente) <b id="vPa"></b></label><input id="Pa" type="range" min="1" max="6" value="1">
+<label>Carga conectada (resistencia) <b id="vR"></b></label><input id="R" type="range" min="0.5" max="100" step="0.5" value="6">
+<details><summary>Datos de una celda (puedes cambiarlos)</summary>
+<div>Voltaje de una celda sin carga (V) <input id="cV" type="number" step="0.01" value="0.60"></div>
+<div>Corriente de una celda en corto (A) <input id="cI" type="number" step="0.1" value="3.0"></div>
+<div>Luz reflejada del suelo (%) <input id="alb" type="number" step="0.5" value="2"></div>
+<p style="color:var(--mut);margin:6px 0 0">Valores típicos de una celda de silicio a 1000 W/m² y 25 °C.</p>
+</details>
+</div>
+<div class="card">
+<svg viewBox="0 0 400 130" style="width:100%;max-height:150px" role="img" aria-label="Dibujo del panel y el sol">
+<rect x="0" y="112" width="400" height="18" fill="#DCE9FB" opacity=".5"/>
+<g id="sun"><circle r="16" fill="#FFC93C"/></g>
+<g id="rays" stroke="#F5A400" stroke-width="2" stroke-dasharray="4 4"></g>
+<g id="panel" transform="translate(240,95)"><rect x="-55" y="-4" width="110" height="8" rx="2" fill="#0B3D91"/><rect x="-53" y="-6" width="106" height="3" fill="#6FA8FF"/></g>
+</svg>
+<p id="arr" style="margin:6px 0 0;font-size:14px;color:var(--mut)"></p>
+<div class="kpi">
+<div><small>Luz que recibe</small><b id="kG"></b></div>
+<div><small>Voltaje sin carga (Voc)</small><b id="kV"></b></div>
+<div><small>Corriente en corto (Isc)</small><b id="kI"></b></div>
+<div><small>Potencia máxima posible</small><b id="kP"></b></div>
+<div><small>Con la carga: voltaje · corriente</small><b id="kL"></b></div>
+<div><small>Con la carga: potencia (P = V·I)</small><b id="kLP"></b></div>
+</div>
+<p style="margin:14px 0 4px;font-weight:700">Curva corriente–voltaje (I–V)</p>
+<svg id="iv" class="ch" viewBox="0 0 420 220" style="width:100%"></svg>
+<p style="color:var(--mut);font-size:13px;margin:4px 0 0">Línea azul: lo que puede dar el panel. Línea punteada: la carga (Ley de Ohm, I = V/R). El círculo es donde trabaja el panel. ★ = máxima potencia.</p>
+<div class="now" id="now"></div>
+</div>
+</div>
+<div class="note" style="margin-top:20px"><b>¿Cómo calcula?</b> Luz que recibe = <em>G · cos(ángulo)</em>. Celdas en serie suman voltaje; filas en paralelo suman corriente. La corriente crece casi igual que la luz; el voltaje cambia poco con la luz y baja con el calor. Es un modelo simplificado para aprender.</div>
+<h3 style="margin:30px 0 6px">Predice y comprueba</h3>
+<p class="lead" style="margin-bottom:14px">Antes de mover el simulador, elige tu respuesta. Luego compruébala.</p>
+<div class="qz">
+<div class="card"><p class="q">1. Si duplicas la luz, ¿qué pasa con la corriente?</p>
+<button>Casi no cambia</button><button data-ok>Casi se duplica</button><button>Se cuadruplica</button>
+<div class="why"><b>Casi se duplica.</b> El doble de luz trae el doble de fotones, y cada fotón útil libera un electrón. Pero el voltaje solo sube un poco, porque depende de la luz de forma logarítmica. <em>Pruébalo:</em> mueve "Luz del sol" de 500 a 1000.</div></div>
+<div class="card"><p class="q">2. Luz infrarroja de 1300 nm muy intensa, ¿genera corriente?</p>
+<button>Sí, si es muy intensa</button><button data-ok>No, aunque sea muy intensa</button><button>Solo si la celda está caliente</button>
+<div class="why"><b>No.</b> Cada fotón tiene 0.95 eV, menos que los 1.12 eV que necesita el silicio. Mandar más fotones no ayuda: un fotón débil no suelta el electrón, aunque lleguen muchos. Esta es la idea clave de Einstein sobre el efecto fotoeléctrico. <em>Pruébalo:</em> elige "Infrarrojo lejano".</div></div>
+<div class="card"><p class="q">3. Si volteas el panel boca abajo, ¿qué pasa con el voltaje?</p>
+<button>Llega a cero</button><button data-ok>Baja, pero no a cero</button><button>No cambia</button>
+<div class="why"><b>Baja, pero no a cero.</b> Todavía entra un poco de luz reflejada del suelo. Con poca luz ya hay voltaje, pero casi no hay corriente. En el jardín medimos 9.08 V boca abajo contra 19.61 V de frente al sol.</div></div>
+<div class="card"><p class="q">4. Si el panel se calienta, ¿qué pasa con el voltaje?</p>
+<button data-ok>Baja</button><button>Sube</button><button>No cambia</button>
+<div class="why"><b>Baja.</b> Con calor, los electrones se mueven más y la unión P–N "retiene" menos voltaje. Por eso un panel rinde mejor en un día frío y soleado que en uno muy caliente. <em>Pruébalo:</em> sube la temperatura a 70 °C.</div></div>
+</div>
+</div></section>
+
+<section id="mediciones"><div class="wrap">
+<h2>Lo que medimos en el campus</h2>
+<p class="lead">11 nov 2026, jardín del Tec Campus Sinaloa. Un panel solar, multímetro UNI-T UT136B+, tres posiciones.</p>
+<h3 style="margin:0 0 10px">Todas las lecturas</h3>
+<div class="card" style="overflow-x:auto"><table>
+<thead><tr><th>Posición</th><th>Voltaje (V)</th><th>Corriente (rango del multímetro)</th></tr></thead>
+<tbody>
+<tr><td>Boca arriba</td><td class="num">19.10 · 19.11 · 19.13 · 19.11 · 19.83</td><td class="num">26.9 µA · 34.7 µA · 34.7 µA · 3.45 mA · 0.020 A</td></tr>
+<tr><td>Perpendicular al sol</td><td class="num">19.30 · 19.36 · 19.34 · 20.10 · 19.96</td><td class="num">0.020 A · 3.52 mA · 3.53 mA</td></tr>
+<tr><td>Boca abajo</td><td class="num">9.17 · 9.16 · 9.04 · 8.94</td><td class="num">−0.013 A · 0.00 mA · 2.22 mA · 22.2 µA · 22.2 µA</td></tr>
+</tbody></table></div>
+<div class="note" style="margin-top:18px"><b>Ojo con la corriente:</b> un panel así al sol debería dar unos 2–3 A en cortocircuito, pero medimos solo µA o mA, y el número cambió según el rango del multímetro. Esto indica que la lectura no fue válida: para medir amperes la punta roja va en el conector <b>10A</b>, y el conector de mA tiene un fusible de 400 mA que pudo haberse fundido. Aun así, la tendencia sí se ve: boca abajo da menos corriente que boca arriba o perpendicular.</div>
+<div class="grid" style="margin-top:18px">
+<div class="card"><h3>Perpendicular gana</h3><p>Los rayos pegan de frente, el panel recibe más luz y da el voltaje más alto (19.61 V).</p></div>
+<div class="card"><h3>Boca arriba, casi igual</h3><p>Los rayos llegan inclinados y la luz baja ≈25%, pero el voltaje solo baja 0.35 V (19.26 V).</p></div>
+<div class="card"><h3>Boca abajo, cae a la mitad</h3><p>Casi no entra luz, así que el voltaje baja a 9.08 V y la corriente casi desaparece.</p></div>
+</div>
+</div></section>
+
+<section id="ruta"><div class="wrap">
+<h2>Ruta de cinco semanas</h2>
+<p class="lead">Una hora supervisada por semana, más trabajo individual.</p>
+<ul class="tl">
+<li><small>Semana 1 · 2–6 nov</small><b>Ingreso a Photon Labs</b>Herramientas, repositorio, interfaz inicial y GitHub Pages. <em>Evidencia: primera versión publicada.</em></li>
+<li><small>Semana 2 · 9–13 nov</small><b>Conocer al cliente</b>Inventario de cargas, potencia, horas de operación y consumo. <em>Evidencia: módulo de consumo calculable.</em></li>
+<li><small>Semana 3 · 16–20 nov</small><b>Diseñar con componentes reales</b>Paneles, conexiones, catálogo y fichas técnicas con precios verificables. <em>Evidencia: dimensionamiento fotovoltaico.</em></li>
+<li><small>Semana 4 · 23–27 nov</small><b>Preparar la cotización</b>Inversor, baterías, compatibilidad eléctrica, costos, ahorros y recuperación. <em>Evidencia: propuesta calculada.</em></li>
+<li><small>Semana 5 · 30 nov–4 dic</small><b>Presentar al director</b>Validación, pruebas finales y PDF para el cliente. <em>Evidencia: APP final + PDF.</em></li>
+</ul>
+</div></section>
+
+<section id="entregables" class="alt"><div class="wrap">
+<h2>Entregables</h2>
+<div class="grid">
+<div class="card"><h3>App publicada</h3><p>URL de GitHub Pages con el simulador funcionando.</p></div>
+<div class="card"><h3>Repositorio</h3><p>URL del código en GitHub.</p></div>
+<div class="card"><h3>Reporte PDF</h3><p>Generado por la app, listo para entregar a un cliente.</p></div>
+</div>
+<div class="note" style="margin-top:24px"><b>Transparencia:</b> el resultado es un dimensionamiento y una cotización preliminar, no un proyecto ejecutivo autorizado para construcción. Los supuestos y límites siempre se muestran, y no se prometen ahorros garantizados.</div>
+</div></section>
+
+<section id="contacto"><div class="wrap"><div class="cta">
+<h2>¿Listo para llevar energía solar a tu aula?</h2>
+<p>Photon Labs calcula el consumo, elige los componentes y entrega una cotización clara en PDF.</p>
+<a class="btn b1" href="#solucion">Conoce la solución</a><a class="btn b2" href="#simulador">Volver al simulador</a>
+</div></div></section>
+<footer><div class="wrap">
+<a class="brand" href="#inicio" style="color:#fff"><svg width="32" height="32"><use href="#ic"/></svg>A01744009</a>
+<span>Marco Uriarte · A01744009 · TE1020 Análisis de Circuitos Eléctricos<br>Tec de Monterrey, Campus Sinaloa · Noviembre 2026 · Versión 2<small>Datos: mediciones propias del 11 nov 2026 (multímetro UNI-T UT136B+). Photon Labs S.A. de C.V. es una empresa ficticia de esta situación-problema.</small></span>
+</div></footer>
+<div id="tip"></div>
+<script>
+(function(){
+var $=function(i){return document.getElementById(i)};
+function P(){var S=+$('S').value,Pa=+$('Pa').value;return{S:S,Pa:Pa,V0:S*(+$('cV').value||0.6),I0:Pa*(+$('cI').value||3),N:S,alb:(+$('alb').value||0)/100,n:1.3,b:-0.0033,a:0.0005}}
+function luz(ang,G,alb){var c=Math.cos(ang*Math.PI/180);return Math.max(G*Math.max(c,0),G*alb)}
+function modelo(Ge,T,p){
+  var Vt=1.380649e-23*(T+273.15)/1.602e-19, a=p.N*p.n*Vt;
+  var Voc=Math.max(0,p.V0*(1+p.b*(T-25))+a*Math.log(Ge/1000));
+  var Isc=p.I0*(Ge/1000)*(1+p.a*(T-25));
+  return{Voc:Voc,Isc:Isc,I:function(V){return Math.max(0,Isc*(1-Math.exp((V-Voc)/a)))}};
+}
+function posAng(k){return k==='perp'?0:k==='abajo'?180:90-(+$('el').value)}
+
+var FX={rate:1,lam:0,ok:true,load:.5,step:0};
+var CAP=['Mira todo el proceso junto. Elige un paso para verlo en cámara lenta.',
+'<b>Paso 1 · Llega el fotón.</b> La luz viaja en paquetes de energía llamados fotones. Los azules llevan más energía que los rojos. La energía de cada uno depende de su color, no de qué tan intensa es la luz.',
+'<b>Paso 2 · Se libera el electrón.</b> El fotón choca con un átomo de silicio y le da su energía a un electrón. Si es suficiente (más de 1.12 eV), el electrón queda libre y deja un hueco (+) donde estaba.',
+'<b>Paso 3 · La unión P–N los separa.</b> En la unión entre las capas hay un campo eléctrico, como una pendiente: los electrones (−) suben a la capa N y los huecos (+) bajan a la capa P. Esa separación de cargas es el <b>voltaje</b>. Sin la unión, el electrón volvería a su hueco y la energía se perdería como calor.',
+'<b>Paso 4 · Circula la corriente.</b> Los electrones acumulados en la capa N buscan regresar a la capa P. El único camino es el cable externo, así que pasan por el foco y le dan energía. Eso es la <b>corriente</b>. Más fotones significan más electrones por segundo, y por lo tanto más corriente.'];
+document.querySelectorAll('#stp button').forEach(function(b){b.onclick=function(){FX.step=+b.dataset.s;document.querySelectorAll('#stp button').forEach(function(x){x.classList.toggle('on',x===b)});$('cap').innerHTML=CAP[FX.step]}});
+$('cap').innerHTML=CAP[0];
+(function(){
+  var c=$('cv'),x=c.getContext('2d'),W=560,H=320,ph=[],ca=[],ex=[],t=0,acc=0;
+  var top=70,jn=130,bot=250,L=30,Rx=400;
+  var lamCol=function(l){return l===0?'#FFC93C':l<500?'#6FA8FF':l<600?'#7BD88F':l<750?'#FF7A59':'#B07CFF'};
+  function loop(){
+    var sp=FX.step?0.45:1;t++;var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    acc+=FX.rate*0.3*(FX.step?0.6:1);while(acc>=1){acc--;var ok=FX.lam===0?Math.random()>0.2:FX.ok;
+      ph.push({x:L+15+Math.random()*(Rx-L-30),y:-10,vy:3.2,ok:ok,d:top+12+Math.random()*(bot-top-24),col:ok?lamCol(FX.lam):'#5B6B86'})}
+    x.clearRect(0,0,W,H);
+    // capas
+    x.fillStyle='#2F80ED';x.fillRect(L,top,Rx-L,jn-top);x.fillStyle='#0B3D91';x.fillRect(L,jn,Rx-L,bot-jn);
+    x.fillStyle='rgba(255,201,60,.25)';x.fillRect(L,jn-6,Rx-L,12);
+    x.fillStyle='#DCE9FB';for(var i=0;i<7;i++)x.fillRect(L+20+i*55,top-6,10,8);x.fillRect(L,bot,Rx-L,8);
+    
+    // circuito y foco
+    x.strokeStyle='#DCE9FB';x.lineWidth=3;x.beginPath();x.moveTo(Rx-20,top-2);x.lineTo(Rx-20,top-30);x.lineTo(500,top-30);x.lineTo(500,140);x.moveTo(500,200);x.lineTo(500,bot+30);x.lineTo(Rx-20,bot+30);x.lineTo(Rx-20,bot+8);x.stroke();
+    var nw=ca.filter(function(q){return q.st>=2}).length,glow=Math.min(1,nw/10)*(0.4+0.6*FX.load);
+    x.fillStyle='rgba(255,201,60,'+(0.15+0.85*glow)+')';x.beginPath();x.arc(500,170,24,0,7);x.fill();
+    if(glow>.05){x.fillStyle='rgba(255,201,60,'+0.25*glow+')';x.beginPath();x.arc(500,170,24+30*glow,0,7);x.fill()}
+    x.strokeStyle='#071F4A';x.lineWidth=2;x.beginPath();x.arc(500,170,24,0,7);x.stroke();
+    x.fillStyle='#DCE9FB';x.font='12px system-ui';x.fillText('Foco',484,215);
+    // fotones
+    for(var i=ph.length-1;i>=0;i--){var p=ph[i];p.y+=reduce?6:p.vy*sp;
+      x.strokeStyle=p.col;x.lineWidth=2;x.beginPath();for(var k=0;k<14;k++){var yy=p.y-k*1.5;x.lineTo(p.x+Math.sin((yy+t*2)/3)*3,yy)}x.stroke();
+      if(p.ok&&p.y>=p.d){ph.splice(i,1);ex.push({x:p.x,y:p.y,r:12,a:1});
+        ca.push({x:p.x,y:p.y,s:'e',st:0});ca.push({x:p.x+4,y:p.y,s:'h',st:0})}
+      else if(p.y>bot+10)ph.splice(i,1)}
+    for(var i=ex.length-1;i>=0;i--){var e=ex[i];e.r+=1.5;e.a-=.06;if(e.a<=0){ex.splice(i,1);continue}x.strokeStyle='rgba(255,255,255,'+e.a+')';x.lineWidth=1.5;x.beginPath();x.arc(e.x,e.y,e.r,0,7);x.stroke()}
+    // cargas
+    for(var i=ca.length-1;i>=0;i--){var q=ca[i];
+      var v=sp;if(q.s==='h'){q.y+=1.2*v;if(q.y>bot-4){ca.splice(i,1);continue}}
+      else{ if(q.st===0){q.y-=1.6*v;if(q.y<top+4){q.st=1}}
+        else if(q.st===1){q.x+=(Rx-20-q.x)*.15*v;q.y-=2*v;if(q.y<top-30){q.st=2;q.y=top-30}}
+        else if(q.st===2){q.x+=2.5*v;if(q.x>=500){q.x=500;q.st=3}}
+        else if(q.st===3){q.y+=2.5*v;if(q.y>=bot+30){q.y=bot+30;q.st=4}}
+        else if(q.st===4){q.x-=2.5*v;if(q.x<=Rx-20){ca.splice(i,1);continue}}}
+      x.fillStyle=q.s==='e'?'#6FA8FF':'#F5A400';x.beginPath();x.arc(q.x,q.y,4.5,0,7);x.fill();
+      x.fillStyle='#071F4A';x.font='bold 9px system-ui';x.fillText(q.s==='e'?'−':'+',q.x-2.6,q.y+3)}
+
+    if(FX.step){x.save();x.fillStyle='rgba(7,31,74,.55)';x.fillRect(0,0,W,H);x.restore();
+      var R0=[[0,0,0,0],[L,0,Rx-L,top+6],[L,top,Rx-L,bot-top],[L,jn-26,Rx-L,52],[Rx-30,top-44,140,bot-top+88]][FX.step];
+      x.strokeStyle='#FFC93C';x.lineWidth=2;x.setLineDash([6,4]);x.strokeRect(R0[0],R0[1],R0[2],R0[3]);x.setLineDash([]);
+      if(FX.step===3){x.fillStyle='#FFC93C';x.font='bold 13px system-ui';for(var k=0;k<5;k++){var ax=L+40+k*70;x.fillText('e⁻ ↑',ax,jn-10);x.fillText('+ ↓',ax+30,jn+20)}}
+      if(FX.step===2){x.fillStyle='#FFC93C';x.font='bold 12px system-ui';x.fillText('fotón → electrón libre + hueco',L+10,bot-30)}
+      if(FX.step===1){x.fillStyle='#FFC93C';x.font='bold 12px system-ui';x.fillText(FX.lam?('E = 1240 / '+FX.lam+' nm = '+(1240/FX.lam).toFixed(2)+' eV'):'Cada color trae una energía distinta',L+10,top-8)}
+      if(FX.step===4){x.fillStyle='#FFC93C';x.font='bold 12px system-ui';x.fillText('I = cargas por segundo',Rx-20,bot+50)}
+    }
+    if(ca.length>220)ca.splice(0,ca.length-220);
+    function tag(tx,xx,yy,col){x.font='bold 12px system-ui';var w=x.measureText(tx).width;x.fillStyle='rgba(7,31,74,.85)';x.fillRect(xx-4,yy-13,w+8,18);x.fillStyle=col;x.fillText(tx,xx,yy)}
+    tag('Capa N (−)',Rx-90,top+20,'#fff');tag('Capa P (+)',Rx-90,bot-12,'#fff');tag('Unión P–N',Rx-80,jn+5,'#FFC93C');
+    x.fillStyle='#DCE9FB';x.font='12px system-ui';x.fillText('☀ Luz',L,22);
+    x.fillText('→ e⁻',440,top-36);
+    requestAnimationFrame(loop)}
+  loop();
+})();
+
+document.querySelectorAll('.qz .card').forEach(function(c){c.querySelectorAll('button').forEach(function(b){b.onclick=function(){c.querySelectorAll('button').forEach(function(x){x.classList.add(x.hasAttribute('data-ok')?'ok':'no')});c.querySelector('.why').style.display='block'}})});
+var modo='perp';
+document.querySelectorAll('.pre button').forEach(function(b){b.onclick=function(){modo=b.dataset.p;$('ang').value=posAng(modo);draw()}});
+['ang','G','T','el','R','S','Pa','cV','cI','alb','lam'].forEach(function(i){$(i).addEventListener(i==='lam'?'change':'input',function(){if(i==='ang')modo=null;if(i==='el'&&modo==='arriba')$('ang').value=posAng('arriba');draw()})});
+var f=function(x,d){return x.toFixed(d)};
+var NS='http://www.w3.org/2000/svg';
+function el(t,a,par){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);par&&par.appendChild(e);return e}
+var tip=$('tip');
+function hov(e,txt){e.addEventListener('mousemove',function(ev){tip.style.display='block';tip.textContent=txt;tip.style.left=ev.clientX+12+'px';tip.style.top=ev.clientY+12+'px'});e.addEventListener('mouseleave',function(){tip.style.display='none'})}
+function draw(){
+  var p=P(),ang=+$('ang').value,G=+$('G').value,T=+$('T').value,R=+$('R').value;
+  document.querySelectorAll('.pre button').forEach(function(b){b.classList.toggle('on',b.dataset.p===modo)});
+  $('vAng').textContent=ang+'°';$('vG').textContent=G+' W/m²';$('vT').textContent=T+' °C';$('vEl').textContent=$('el').value+'°';$('vR').textContent=R+' Ω';$('vS').textContent=$('S').value;$('vPa').textContent=$('Pa').value;
+  var Ge=luz(ang,G,p.alb),lam=+$('lam').value,fac=lam===0?1:(lam>1107?0:lam/900),m=modelo(Math.max(Ge*fac,1e-9),T,p);
+  FX.rate=Ge/1000;FX.lam=lam;FX.ok=fac>0;FX.load=Math.min(1,1/(1+R/8));
+  $('kE').textContent=lam===0?'0.5–3.5 eV':f(1240/lam,2)+' eV';$('kOk').textContent=fac>0?(lam===0?'Sí, la mayoría':'Sí'):'No';
+  // escena: sol fijo arriba-izq según altura; panel girado
+  var e=+$('el').value*Math.PI/180, cx=240-88*Math.cos(e), cy=95-88*Math.sin(e);
+  $('sun').setAttribute('transform','translate('+Math.max(20,cx)+','+Math.max(18,cy)+')');
+  var rot=modo==='perp'?-(90-$('el').value):modo==='arriba'?0:modo==='abajo'?180:-(ang);
+  $('panel').setAttribute('transform','translate(240,95) rotate('+rot+')');
+  var r=$('rays');r.innerHTML='';for(var i=-1;i<=1;i++)el('line',{x1:Math.max(20,cx),y1:Math.max(18,cy),x2:240+i*30,y2:95+i*6,opacity:ang>=90?.25:1},r);
+  $('arr').textContent='Tu panel: '+(p.S*p.Pa)+' celdas ('+p.S+' en serie × '+p.Pa+' en paralelo)';
+
+  (function(){var sv=$('lad');sv.innerHTML='';var Y=function(e){return 150-e/4*135};
+   el('line',{x1:40,x2:40,y1:Y(0),y2:Y(4),stroke:'currentColor',opacity:.4},sv);
+   for(var e=0;e<=4;e++){el('text',{x:34,y:Y(e)+4,'text-anchor':'end',style:'fill:var(--mut);font-size:10px'},sv).textContent=e;}
+   el('text',{x:4,y:10,style:'fill:var(--mut);font-size:10px'},sv).textContent='eV';
+   el('line',{x1:40,x2:128,y1:Y(1.12),y2:Y(1.12),stroke:'#F5A400','stroke-width':2,'stroke-dasharray':'5 3'},sv);
+   el('text',{x:90,y:Y(1.12)-5,style:'fill:var(--mut);font-size:9.5px'},sv).textContent='mín. 1.12';
+   var E=lam?1240/lam:null,tx;
+   if(E){var okk=E>=1.12;el('rect',{x:62,y:Y(E),width:22,height:Y(0)-Y(E),rx:4,fill:okk?'#FFC93C':'#5B6B86'},sv);
+     if(okk)el('rect',{x:62,y:Y(E),width:22,height:Y(1.12)-Y(E),rx:4,fill:'#F5A400',opacity:.55},sv);
+     tx=okk?('Cada fotón trae <b>'+f(E,2)+' eV</b>. Usa 1.12 eV para soltar el electrón y los <b>'+f(E-1.12,2)+' eV</b> que sobran se pierden como calor (franja naranja). Por eso ninguna celda aprovecha toda la luz.'):('Cada fotón trae solo <b>'+f(E,2)+' eV</b>; le faltan <b>'+f(1.12-E,2)+' eV</b>. No suelta ningún electrón, sin importar cuántos fotones lleguen.');}
+   else{el('rect',{x:62,y:Y(3.5),width:22,height:Y(0.5)-Y(3.5),rx:4,fill:'#FFC93C',opacity:.75},sv);
+     tx='La luz del sol mezcla fotones de <b>0.5 a 3.5 eV</b>. Los que pasan la línea de 1.12 eV liberan electrones; los de abajo (infrarrojo) no sirven. Elige un color para ver un solo tipo de fotón.';}
+   $('ladTx').innerHTML=tx;
+   var why;
+   if(fac===0)why='<b>¿Qué pasa ahora?</b> Los fotones no tienen energía suficiente, así que no se libera ningún electrón: 0 V y 0 A, aunque haya mucha luz.';
+   else{var pc=Math.round(Ge/G*100);
+     why='<b>¿Qué pasa ahora?</b> El panel recibe <b>'+f(Ge,0)+' W/m²</b> ('+pc+'% de la luz disponible'+(ang>0&&ang<90?', porque los rayos llegan inclinados: cos '+ang+'° = '+f(Math.cos(ang*Math.PI/180),2):ang>=90?', solo luz reflejada del suelo':', los rayos llegan de frente')+'). '+
+     'Llegan ~'+(Ge*fac>=1?f(Ge*fac/1000*100,0):'<1')+'% de los fotones útiles que habría a pleno sol, así que la corriente es <b>'+(m.Isc<0.1?f(m.Isc*1000,1)+' mA':f(m.Isc,2)+' A')+'</b>. '+
+     'El voltaje ('+f(m.Voc,1)+' V) es la suma de '+p.S+' celdas de ~'+f(m.Voc/p.S,2)+' V cada una'+(T>25?'; el calor de '+T+' °C lo baja un poco':'')+'.';}
+   $('now').innerHTML=why;})();
+  // kpis
+  var Vs=[],Pm=0,Vm=0;for(var k=0;k<=200;k++){var V=m.Voc*k/200,I=m.I(V);Vs.push([V,I]);if(V*I>Pm){Pm=V*I;Vm=V}}
+  var lo=0,hi=m.Voc;for(var j=0;j<60;j++){var mid=(lo+hi)/2;if(m.I(mid)>mid/R)lo=mid;else hi=mid}var VL=lo,IL=VL/R;
+  $('kG').textContent=f(Ge,0)+' W/m²';$('kV').textContent=f(fac>0?m.Voc:0,2)+' V';
+  $('kI').textContent=m.Isc<0.1?f(m.Isc*1000,2)+' mA':f(m.Isc,2)+' A';
+  $('kP').textContent=Pm<1?f(Pm*1000,1)+' mW':f(Pm,1)+' W';
+  $('kL').textContent=f(VL,1)+' V · '+(IL<0.1?f(IL*1000,1)+' mA':f(IL,2)+' A');
+  $('kLP').textContent=VL*IL<1?f(VL*IL*1000,1)+' mW':f(VL*IL,1)+' W';
+  // curva I-V
+  var s=$('iv');s.innerHTML='';var W=420,H=220,L=44,B=30,Tp=24,Rr=12;
+  var xm=Math.max(1,Math.ceil(p.V0*1.15)),ym=Math.max(1e-4,m.Isc*1.25);
+  var X=function(v){return L+v/xm*(W-L-Rr)},Y=function(i){return H-B-i/ym*(H-B-Tp)};
+  for(var g=0;g<=4;g++){var yy=ym*g/4;el('line',{x1:L,x2:W-Rr,y1:Y(yy),y2:Y(yy),stroke:'currentColor',opacity:.12},s);el('text',{x:L-6,y:Y(yy)+4,'text-anchor':'end'},s).textContent=ym<0.1?f(yy*1000,1):f(yy,1)}
+  var st=xm>30?10:xm>12?5:xm>4?1:0.5;for(var v=0;v<=xm+1e-9;v+=st){el('text',{x:X(v),y:H-B+16,'text-anchor':'middle'},s).textContent=+v.toFixed(1)}
+  el('text',{x:W-Rr,y:H-2,'text-anchor':'end'},s).textContent='Voltaje (V)';
+  el('text',{x:L,y:12,'text-anchor':'middle'},s).textContent=ym<0.1?'Corriente (mA)':'Corriente (A)';
+  el('line',{x1:L,x2:L,y1:Tp,y2:H-B,stroke:'currentColor',opacity:.4},s);el('line',{x1:L,x2:W-Rr,y1:H-B,y2:H-B,stroke:'currentColor',opacity:.4},s);
+  el('line',{x1:X(0),y1:Y(0),x2:X(xm),y2:Y(Math.min(ym,xm/R)),stroke:'#5B6B86','stroke-width':1.5,'stroke-dasharray':'5 4'},s);
+  el('path',{d:Vs.map(function(q,i){return(i?'L':'M')+X(q[0]).toFixed(1)+' '+Y(q[1]).toFixed(1)}).join(''),fill:'none',stroke:'#2F80ED','stroke-width':2.5},s);
+  var mp=el('text',{x:X(Vm),y:Y(m.I(Vm))-6,'text-anchor':'middle',style:'fill:#F5A400;font-size:16px'},s);mp.textContent='★';
+  var op=el('circle',{cx:X(VL),cy:Y(IL),r:6,fill:'#FFC93C',stroke:'#071F4A','stroke-width':2},s);
+  hov(op,'Trabajando: '+f(VL,2)+' V, '+(IL<0.1?f(IL*1000,2)+' mA':f(IL,2)+' A'));
+  hov(mp,'Máxima potencia: '+f(Vm,1)+' V · '+(Pm<1?f(Pm*1000,1)+' mW':f(Pm,1)+' W'));
+  var hit=el('rect',{x:L,y:Tp,width:W-L-Rr,height:H-B-Tp,fill:'transparent'},s);
+  hit.addEventListener('mousemove',function(ev){var bb=s.getBoundingClientRect(),v=((ev.clientX-bb.left)*W/bb.width-L)/(W-L-Rr)*xm;if(v<0||v>m.Voc){tip.style.display='none';return}var i=m.I(v);tip.style.display='block';tip.textContent=f(v,2)+' V → '+(i<0.1?f(i*1000,2)+' mA':f(i,2)+' A')+' · '+f(v*i,1)+' W';tip.style.left=ev.clientX+12+'px';tip.style.top=ev.clientY+12+'px'});
+  hit.addEventListener('mouseleave',function(){tip.style.display='none'});
+  s.insertBefore(hit,s.firstChild.nextSibling);
+}
+draw();
+})();
+</script>
+
+</body>
+</html>
